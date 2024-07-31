@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kalendarz zamówień - aplikacja</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="/dist/css/app-page.min.css" />
+	</head>
+	<body>
+		<nav class="heading-bar">
+			<div class="heading-bar__logo">
+				<div class="heading-bar__logo--img"></div>
+				<h1 class="heading-bar__logo--title">Ezcuection <span class="heading-bar__logo--slogan">- Cosmetic Quality</span></h1>
+			</div>
+			<a href="/index.html" class="heading-bar__logout-btn nav-btn">Wyloguj</a>
+		</nav>
+
+		<main class="sections">
+			<!-- cosmetics warehouse -->
+			<section class="section-cosmetics section">
+				<h2 class="section-heading">Kosmetyki</h2>
+				<p class="section-description">W tym miejscu można dodawać kosmetyki do magazynu, a także sprawdzić ich ilość w magazynie.</p>
+
+				<!-- adding cosmetic area -->
+				<div class="add-cosmetic-area">
+					<div class="add-cosmetic-area__box add-cosmetic-area__name">
+						<label for="c-name" class="add-cosmetic-label">Nazwa produktu</label>
+						<input type="text" id="c-name" class="add-cosmetic-area__name--input add-cosmetic-name input" />
+					</div>
+
+					<div class="add-cosmetic-area__box add-cosmetic-area__price">
+						<label for="c-net-price" class="add-cosmetic-label">Cena netto [zł]</label>
+						<input type="number" id="c-net-price" class="add-cosmetic-area__price--input add-cosmetic-net-price input" />
+					</div>
+
+					<div class="add-cosmetic-area__box add-cosmetic-area__vat">
+						<label for="c-vat-percentage" class="add-cosmetic-label">VAT [%]</label>
+						<select name="vat" id="c-vat-percentage" class="add-cosmetic-area__vat-percentage add-cosmetic-vat-percentage">
+							<option value="0" selected disabled>- VAT -</option>
+							<option value="1">8%</option>
+							<option value="2">23%</option>
+						</select>
+					</div>
+
+					<div class="add-cosmetic-area__box add-cosmetic-area__amount">
+						<label for="c-amount" class="add-cosmetic-label">Ilość [szt.]</label>
+						<input type="number" id="c-amount" class="add-cosmetic-area__amount--input add-cosmetic-amount input" />
+					</div>
+
+					<button class="add-cosmetic-area__btn add-new-cosmetic-btn">
+						Dodaj produkt
+						<p class="add-cosmetic-area__error error visibility-hidden">Uzupełnij wszystkie pola!</p>
+					</button>
+				</div>
+				<!-- adding cosmetic area end -->
+
+				<!-- warehouse area -->
+				<div class="cosmetic-warehouse">
+					<div class="cosmetic-warehouse__headings">
+						<h3 class="cosmetic-warehouse__headings--name">Nazwa produktu</h3>
+						<h3 class="cosmetic-warehouse__headings--net-price">Cena netto [zł]</h3>
+						<h3 class="cosmetic-warehouse__headings--gross-price">Cena brutto [zł]</h3>
+						<h3 class="cosmetic-warehouse__headings--vat-value">VAT [%]</h3>
+						<h3 class="cosmetic-warehouse__headings--amount">Stan magazynowy</h3>
+					</div>
+				</div>
+				<!-- warehouse area end -->
+			</section>
+
+			<!-- clients area -->
+			<section class="section-clients section">
+				<h2 class="section-heading">Klienci</h2>
+				<p class="section-description">
+					W tym miejscu można dodawać klientów wraz z ich danymi do bazy. Po kliknięciu na klienta wyświetlą się jego dane.
+				
+				
+				
+				</p>
+
+				<!-- BASE OF CLIENTS -->
+				<div class="added-clients">
+					<!-- <div class="added-clients__client-box">
+						<button class="added-clients__name">Klient 1</button>
+
+						<dialog class="added-clients-area-shadow">
+							<div class="added-clients__data">
+								<div class="added-clients__data--box">
+									<span class="text-bold">Nazwa:</span>
+									<span class="added-clients__data--name">Klient 1</span>
+								</div>
+
+								<div class="added-clients__data--box">
+									<span class="text-bold">NIP:</span>
+									<span class="added-clients__data--nip">Miast sa1</span>
+								</div>
+
+								<div class="added-clients__data--box">
+									<span class="text-bold">Miasto:</span>
+									<span class="added-clients__data--city">Miast 1</span>
+								</div>
+
+								<div class="added-clients__data--box">
+									<span class="text-bold">Kod pocztowy:</span>
+									<span class="added-clients__data--zip-code">Miaas1</span>
+								</div>
+
+								<div class="added-clients__data--box">
+									<span class="text-bold">Ulica:</span>
+									<span class="added-clients__data--street">Miaas1</span>
+								</div>
+
+								<div class="added-clients__data--box">
+									<span class="text-bold">Numer telefonu:</span>
+									<span class="added-clients__data--phone">12343424</span>
+								</div>
+
+								<div class="added-clients__data--box">
+									<span class="text-bold">E-mail:</span>
+									<span class="added-clients__data--email">akdnaksldj@ka.pl</span>
+								</div>
+
+								<div class="added-clients__data--box">
+									<span class="text-bold">Opis:</span>
+									<span class="added-clients__data--description">
+										Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam, impedit! Enim, quaerat?
+									</span>
+								</div>
+
+								<button class="added-clients__close-btn">Zamknij</button>
+							</div>
+						</dialog>
+					</div> -->
+				</div>
+
+				<!-- BASE OF CLIENTS END -->
+
+				<!-- adding clients area -->
+				<button class="add-client-btn">Dodaj klienta</button>
+
+				<dialog class="area-shadow">
+					<div class="add-client-area">
+						<label class="add-client-area__heading" for="add-client-name">Nazwa klienta:</label>
+						<input type="text" id="add-client-name" class="add-client-area__name add-client-area__input" />
+
+						<label class="add-client-area__heading" for="add-client-nip">NIP klienta:</label>
+						<input type="number" id="add-client-nip" class="add-client-area__nip add-client-area__input" />
+
+						<label class="add-client-area__heading" for="add-client-city">Miasto:</label>
+						<input type="text" id="add-client-city" class="add-client-area__city add-client-area__input" />
+
+						<label class="add-client-area__heading" for="add-client-zip-code">Kod pocztowy:</label>
+						<input type="number" id="add-client-zip-code" class="add-client-area__zip-code add-client-area__input" />
+
+						<label class="add-client-area__heading" for="add-client-street">Ulica:</label>
+						<input type="text" id="add-client-street" class="add-client-area__street add-client-area__input" />
+
+						<label class="add-client-area__heading" for="add-client-phone">Numer telefonu:</label>
+						<input type="number" id="add-client-phone" class="add-client-area__phone add-client-area__input" />
+
+						<label class="add-client-area__heading" for="add-client-email">E-mail:</label>
+						<input type="text" id="add-client-email" class="add-client-area__mail add-client-area__input" />
+
+						<label class="add-client-area__heading" for="add-client-description">Opis:</label>
+						<textarea id="add-client-description" class="add-client-area__description add-client-area__input"></textarea>
+
+						<div class="add-client-area__btns">
+							<button class="add-client-area__btns--btn-cancel btn-cancel-client">Anuluj</button>
+
+							<button class="add-client-area__btns--btn-add btn-confirm-add-client">
+								Dodaj klienta
+								<!-- <p class="add-client__error error visibility-hidden">Uzupełnij wszystkie pola!</p> -->
+							</button>
+						</div>
+					</div>
+				</dialog>
+				<!-- adding clients area end -->
+			</section>
+			<!-- clients area end -->
+		</main>
+
+		<script src="/dist/js/adding-cosmetics.min.js"></script>
+		<script src="/dist/js/adding-clients.min.js"></script>
+	</body>
+</html>

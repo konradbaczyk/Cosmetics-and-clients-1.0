@@ -1,0 +1,375 @@
+@use "resetCSS" as *;
+@use "colors" as *;
+@use "components" as *;
+@use "animations" as *;
+
+body {
+	min-height: 100svh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: "Raleway", sans-serif;
+	font-size: 1.6rem;
+	background: $background-gradient;
+}
+
+// NAVBAR
+.heading-bar {
+	width: 100%;
+	height: fit-content;
+	display: flex;
+	justify-content: space-between;
+	background-color: $creamy-light;
+	box-shadow: 0 0 4px $box-shadow-brown;
+
+	&__logo {
+		display: flex;
+		align-items: center;
+
+		&--img {
+			width: 6rem;
+			height: 6rem;
+			margin: 1em;
+			background-image: url("../img/logo.jpg");
+			background-size: cover;
+			border-radius: 50%;
+			box-shadow: 0 0 12px $box-shadow-brown;
+		}
+
+		&--title {
+			color: $brown;
+		}
+
+		&--slogan {
+			font-family: "Dancing Script", cursive;
+			font-weight: 500;
+			font-size: 4rem;
+			pointer-events: none;
+		}
+	}
+
+	&__logout-btn {
+		align-self: center;
+		height: fit-content;
+		margin-right: 1em;
+	}
+}
+
+// SECTIONS
+.sections {
+	width: 100%;
+	padding: 2em;
+	display: flex;
+}
+
+// COSMETIC SECTION
+.add-cosmetic-area {
+	margin: 2em 0;
+	padding: 2em 1em;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	background-color: $creamy;
+	border-radius: 24px;
+
+	&__box {
+		min-width: 6rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-between;
+		text-align: center;
+		font-size: 1.8rem;
+		font-weight: 600;
+		overflow: hidden;
+	}
+
+	&__name {
+		width: 40%;
+		min-width: 20rem;
+
+		&--input {
+			padding: 0.5em;
+			width: 100%;
+			font-size: 1.6rem;
+		}
+	}
+
+	&__price,
+	&__amount {
+		width: 12%;
+
+		&--input {
+			padding: 0.5em;
+			width: 80%;
+			font-size: 1.6rem;
+		}
+	}
+
+	&__vat-percentage {
+		padding: 0.5em;
+		font-size: 1.6rem;
+	}
+
+	&__btn {
+		position: relative;
+		align-self: center;
+		height: fit-content;
+		padding: 1em;
+		background-color: $creamy-dark;
+		color: $brown-dark;
+		font-size: 1.6rem;
+		font-weight: 600;
+		border-radius: 24px;
+		transition: color 0.3s, background-color 0.3s;
+
+		&:hover {
+			color: $creamy-light;
+			background-color: $brown-light;
+		}
+	}
+
+	&__error {
+		position: absolute;
+		bottom: -65%;
+		left: 0;
+	}
+}
+
+.add-cosmetic-label {
+	padding: 0.5em;
+}
+
+.cosmetic-warehouse {
+	padding: 2em 1em;
+	display: flex;
+	flex-direction: column;
+	background-color: $creamy;
+	border-radius: 24px;
+
+	&__headings {
+		padding-bottom: 0.5em;
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+		border-bottom: 1px solid $brown;
+
+		&--name,
+		&--net-price,
+		&--gross-price,
+		&--vat-value,
+		&--amount {
+			padding: 0.5em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		&--net-price,
+		&--gross-price,
+		&--vat-value {
+			width: 12%;
+		}
+
+		&--name {
+			width: 40%;
+			min-width: 20rem;
+		}
+
+		&--amount {
+			width: 24%;
+		}
+	}
+
+	&__info {
+		margin-top: 1em;
+		display: flex;
+		justify-content: space-between;
+		text-align: center;
+
+		&--name,
+		&--net-price,
+		&--gross-price,
+		&--vat-value,
+		&--amount {
+			margin-right: 0.2em;
+			padding: 0.5em;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: Arial, Helvetica, sans-serif;
+			background-color: $creamy-light;
+
+			&:last-of-type {
+				margin-right: 0;
+			}
+		}
+
+		&--name {
+			width: 40%;
+			min-width: 20rem;
+		}
+
+		&--net-price,
+		&--gross-price,
+		&--vat-value {
+			width: 12%;
+		}
+
+		&--amount {
+			width: 24%;
+		}
+	}
+}
+
+// CLIENT SECTIONS
+.section-clients {
+	display: flex;
+	flex-direction: column;
+}
+
+.added-clients {
+	margin-top: 2em;
+	padding: 1.4em 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	row-gap: 0.4em;
+	place-items: center;
+	border: 1px solid $brown;
+	border-radius: 24px;
+
+	&__client-box {
+		width: 80%;
+	}
+
+	&__name {
+		width: 100%;
+		padding: 0.3em 0.8em;
+		font-size: 1.6rem;
+		text-align: left;
+		background-color: $creamy-dark;
+		border-radius: 24px;
+		transition: color 0.3s, background-color 0.3s;
+
+		&:hover {
+			color: $creamy-light;
+			background-color: $brown-dark;
+		}
+	}
+
+	&__data {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 40%;
+		padding: 2em;
+		background-color: $creamy-dark;
+		border-radius: 24px;
+
+		&--box {
+			margin-bottom: 1em;
+			padding: 1em;
+			background-color: $creamy;
+			border-radius: 24px;
+		}
+	}
+
+	&__close-btn {
+		position: relative;
+		left: 50%;
+		top: 50%;
+		transform: translateX(-50%);
+		width: 30%;
+		margin: 0 auto;
+		padding: 1em;
+		background-color: $creamy;
+		color: $brown-dark;
+		font-size: 1.6rem;
+		font-weight: 600;
+		border-radius: 24px;
+		transition: color 0.3s, background-color 0.3s;
+
+		&:hover {
+			color: $creamy-light;
+			background-color: $brown-light;
+		}
+	}
+}
+
+.add-client-btn {
+	width: 30%;
+	height: fit-content;
+	margin: 1em auto 0;
+	padding: 1em;
+	color: $brown-dark;
+	background-color: $creamy-dark;
+	font-size: 1.6rem;
+	font-weight: 600;
+	border-radius: 24px;
+	transition: color 0.3s, background-color 0.3s;
+
+	&:hover {
+		color: $creamy-light;
+		background-color: $brown-light;
+	}
+}
+
+.add-client-area {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 60%;
+	padding: 2em 1em;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	background-color: $creamy;
+	border-radius: 24px;
+
+	&__heading {
+		width: fit-content;
+		padding: 0 0 0.5em 1.8em;
+		font-size: 1.6rem;
+		font-weight: 600;
+	}
+
+	&__input {
+		max-width: 100%;
+		margin-bottom: 0.8em;
+		padding: 0.6em 1em;
+		font-size: 1.8rem;
+		border-radius: 24px;
+	}
+
+	&__description {
+		min-width: 100%;
+		min-height: 8rem;
+	}
+
+	&__btns {
+		width: 100%;
+		margin-top: 1em;
+		display: flex;
+		justify-content: space-around;
+
+		&--btn-add,
+		&--btn-cancel {
+			width: 30%;
+			height: fit-content;
+			padding: 1em;
+			background-color: $creamy-dark;
+			color: $brown-dark;
+			font-size: 1.6rem;
+			font-weight: 600;
+			border-radius: 24px;
+			transition: color 0.3s, background-color 0.3s;
+
+			&:hover {
+				color: $creamy-light;
+				background-color: $brown-light;
+			}
+		}
+	}
+}

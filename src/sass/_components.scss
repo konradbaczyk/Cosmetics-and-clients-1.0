@@ -1,0 +1,101 @@
+@use "resetCSS" as *;
+@use "colors" as *;
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+.nav-btn {
+	padding: 0.5em 1em;
+	background-color: $creamy-dark;
+	font-weight: 600;
+	border-radius: 40px;
+	transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+		color: $creamy-light;
+		background-color: $brown-dark;
+		box-shadow: 0 0 12px $box-shadow-brown;
+	}
+}
+
+.sections {
+	display: flex;
+	flex-direction: column;
+}
+
+.section {
+	width: 100%;
+	margin-bottom: 2em;
+	padding: 1em;
+	background-color: $creamy-light;
+	border: 1px solid $brown-dark;
+	border-radius: 24px;
+	box-shadow: 0 0 12px $box-shadow-brown;
+}
+
+.section-heading {
+	font-size: 3rem;
+	margin-bottom: 0.2em;
+}
+
+.section-description {
+	padding-bottom: 0.6em;
+	font-size: 1.4rem;
+	font-style: italic;
+	border-bottom: 1px solid $brown;
+}
+
+.error {
+	font-size: 1.2rem;
+	font-weight: bold;
+	color: red;
+}
+
+.visibility-hidden {
+	visibility: hidden;
+}
+
+.display-none {
+	display: none;
+}
+
+.area-shadow,
+.added-clients-area-shadow {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(100, 100, 100, 0.4);
+	backdrop-filter: blur(3px);
+	overflow: hidden;
+	animation: hideItem 0.6s forwards;
+}
+
+.area-shadow[open],
+.added-clients-area-shadow[open] {
+	display: block;
+	animation: showItem 0.6s;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+// MEDIA QUERIES
+@media (min-width: 576px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+}
+
+@media (min-width: 1200px) {
+}

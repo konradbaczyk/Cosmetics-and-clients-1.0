@@ -1,0 +1,242 @@
+@use "resetCSS" as *;
+@use "colors" as *;
+@use "components" as *;
+@use "animations" as *;
+
+body {
+	min-height: 100svh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: "Raleway", sans-serif;
+	font-size: 1.6rem;
+	background: $background-gradient;
+}
+
+// INFO BOX
+.info-box-btn {
+	position: absolute;
+	top: 1.6em;
+	left: 1.6em;
+	width: 2em;
+	height: 2em;
+	padding: 0.4em;
+	font-size: 1.6rem;
+	font-weight: 600;
+	color: rgba(0, 0, 0, 0.3);
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	border-radius: 50%;
+	transition: color 0.3s, border-color 0.3s;
+
+	&:hover,
+	&:focus {
+		color: $brown-dark;
+		border-color: $brown-dark;
+	}
+}
+
+.info-box {
+	position: absolute;
+	top: 4em;
+	margin: 0 auto;
+	padding: 1em 2.2em;
+	border: 1px solid $brown-dark;
+	border-radius: 20px;
+	color: #000;
+	background-color: $creamy-light;
+	box-shadow: 0 0 8px $box-shadow-grey;
+	animation: hideItem 1s forwards;
+
+	&__title {
+		margin-bottom: 0.2em;
+	}
+	&__text {
+		margin-top: 0.2em;
+		font-size: 1.6rem;
+	}
+
+	&__close-btn {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+		width: 2em;
+		height: 2em;
+		font-size: 1.2rem;
+		color: $brown-dark;
+		border: 1px solid $brown-dark;
+		border-radius: 50%;
+		transition: color 0.3s, border-color 0.3s;
+
+		&:hover {
+			color: $brown-light;
+			border-color: $brown-light;
+		}
+	}
+}
+
+.info-box[open] {
+	display: block;
+	animation: showItem 1s;
+}
+
+// LOGIN FORM
+.form {
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: $creamy-light;
+	border-radius: 20px;
+	box-shadow: 0 0 12px $box-shadow-brown;
+
+	&__img {
+		position: relative;
+		width: 10rem;
+		height: 10rem;
+		margin: 1em;
+		background-image: url("../img/logo.jpg");
+		background-size: cover;
+		border-radius: 50%;
+		box-shadow: 0 0 12px $box-shadow-brown;
+		overflow: hidden;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 30%;
+			height: 250%;
+			background-color: $creamy-light;
+			opacity: 0.3;
+			transform: skewX(30deg);
+			transition: left 0.3s;
+		}
+
+		&:hover::before {
+			left: 155%;
+		}
+	}
+
+	&__line {
+		position: relative;
+		&--input {
+			margin-top: 0.2em;
+			margin-bottom: 1.2em;
+			padding: 0.6em;
+			font-size: 1.6rem;
+			border-radius: 20px;
+			transition: border 0.5s, box-shadow 0.5s;
+
+			&::placeholder {
+				transition: opacity 0.5s, transform 0.5s;
+			}
+
+			&:focus {
+				box-shadow: 0 0 8px $box-shadow-brown;
+				border: solid 1px $brown-dark;
+
+				&::placeholder {
+					opacity: 0;
+					transform: translateX(100px);
+				}
+			}
+		}
+
+		&--error {
+			position: absolute;
+			bottom: 0.2em;
+			left: 1em;
+			font-size: 1.2rem;
+			font-weight: 600;
+			color: $error;
+		}
+	}
+
+	&__login-btn {
+		margin-top: 1em;
+	}
+}
+
+// MEDIA QUERIES
+@media (min-width: 576px) {
+	// LOGIN FORM
+	.form {
+		&__img {
+			width: 14rem;
+			height: 14rem;
+			margin: 1.8em;
+		}
+
+		&__line {
+			&--input {
+				padding: 0.8em;
+				font-size: 1.8rem;
+				border-radius: 40px;
+			}
+
+			&--error {
+				bottom: 0;
+				font-size: 1.6rem;
+			}
+		}
+
+		&__login-btn {
+			margin: 1.4em 0;
+			padding: 0.5em 1em;
+			font-size: 1.8rem;
+		}
+	}
+
+	// INFO BOX
+	.info-box-btn {
+		top: 2em;
+		left: 2em;
+		font-size: 2.4rem;
+	}
+
+	.info-box {
+		top: 3em;
+		padding: 1em 2.8em;
+
+		&__title {
+			margin-bottom: 0.2em;
+			font-size: 1.6rem;
+		}
+		&__text {
+			margin-top: 0.2em;
+			font-size: 2rem;
+		}
+
+		&__close-btn {
+			font-size: 1.4rem;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	// LOGIN FORM
+	.form {
+		&__img {
+			width: 18rem;
+			height: 18rem;
+		}
+
+		&__line {
+			&--input {
+				margin-left: 1em;
+				margin-right: 1em;
+				padding: 0.8em 1.4em;
+			}
+
+			&--error {
+				bottom: 0.2em;
+				left: 2em;
+			}
+		}
+
+		&__login-btn {
+			font-size: 2.2rem;
+		}
+	}
+}

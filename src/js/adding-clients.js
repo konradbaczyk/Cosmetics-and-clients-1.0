@@ -1,17 +1,7 @@
-let addedClientBox;
-let addedClientNip;
-let addedClientCity;
-let addedClientZipCode;
-let addedClientStreet;
-let addedClientPhone;
-let addedClientEmail;
-let addedClientDescription;
-
-let addedNewClientDataBox;
-
-let addedClientName;
-let clientDataCloseBtn;
-let dataToShow;
+let baseClientBox; // kafelek z nazwą klienta
+let baseClientDataBox; //szczegółowe dane klienta
+let baseClientName; // nazwa klienta w bazie
+let baseClientDataCloseBtn; //przycisk zamknięcia okienka z informacjami o kliencie z bazy
 
 const main = () => {
 	prepareDOMElements();
@@ -19,11 +9,12 @@ const main = () => {
 };
 
 const prepareDOMElements = () => {
-	cancelAddClientBtn = document.querySelector(".btn-cancel-client");
-	confirmAddClientBtn = document.querySelector(".btn-confirm-add-client");
-
+	// add client area
 	addClientBtn = document.querySelector(".add-client-btn");
 	addClientArea = document.querySelector(".area-shadow");
+	addClientCancelBtn = document.querySelector(".btn-cancel-client");
+	addClientConfirmBtn = document.querySelector(".btn-confirm-add-client");
+	// add client area end
 
 	newClientName = document.querySelector("#add-client-name");
 	newClientNip = document.querySelector("#add-client-nip");
@@ -34,43 +25,39 @@ const prepareDOMElements = () => {
 	newClientEmail = document.querySelector("#add-client-email");
 	newClientDescription = document.querySelector("#add-client-description");
 
-	// addedClientDataBox = document.querySelector(".added-clients-area-shadow");
-	// addedClient = document.querySelector(".added-clients__name");
-	// closeClientDataBox = document.querySelector(".added-clients__close-btn");
-
 	viewOfAddedClients = document.querySelector(".added-clients");
 };
 
 const prepareDOMEvents = () => {
-	confirmAddClientBtn.addEventListener("click", createNewClient);
+	addClientConfirmBtn.addEventListener("click", createNewClient);
 
 	addClientBtn.addEventListener("click", () => {
 		addClientArea.show();
 	});
-	cancelAddClientBtn.addEventListener("click", () => {
+	addClientCancelBtn.addEventListener("click", () => {
 		addClientArea.close();
 	});
 };
 
 const createNewClient = () => {
-	addedClientBox = document.createElement("div");
-	addedClientBox.classList.add("added-clients__client-box");
-	viewOfAddedClients.appendChild(addedClientBox);
+	baseClientBox = document.createElement("div");
+	baseClientBox.classList.add("added-clients__client-box");
+	viewOfAddedClients.appendChild(baseClientBox);
 
-	addedClientName = document.createElement("button");
-	addedClientName.classList.add("added-clients__name");
-	addedClientName.textContent = newClientName.value;
-	addedClientBox.appendChild(addedClientName);
+	baseClientName = document.createElement("button");
+	baseClientName.classList.add("added-clients__name");
+	baseClientName.textContent = newClientName.value;
+	baseClientBox.appendChild(baseClientName);
 
 	addedClientDataArea = document.createElement("dialog");
 	addedClientDataArea.classList.add("added-clients-area-shadow");
-	addedClientBox.appendChild(addedClientDataArea);
+	baseClientBox.appendChild(addedClientDataArea);
 
-	addedNewClientDataBox = document.createElement("div");
-	addedNewClientDataBox.classList.add("added-clients__data");
-	addedClientDataArea.appendChild(addedNewClientDataBox);
+	baseClientDataBox = document.createElement("div");
+	baseClientDataBox.classList.add("added-clients__data");
+	addedClientDataArea.appendChild(baseClientDataBox);
 
-	addedNewClientDataBox.innerHTML = `
+	baseClientDataBox.innerHTML = `
 		<div class="added-clients__data--box">
 			<span class="text-bold">Nazwa:</span>
 			<span class="added-clients__data--name">${newClientName.value}</span>
@@ -111,10 +98,10 @@ const createNewClient = () => {
 			<span class="added-clients__data--description">${newClientDescription.value}</span>
 		</div>`;
 
-	clientDataCloseBtn = document.createElement("button");
-	clientDataCloseBtn.classList.add("added-clients__close-btn");
-	clientDataCloseBtn.textContent = "Zamknij";
-	addedNewClientDataBox.appendChild(clientDataCloseBtn);
+	baseClientDataCloseBtn = document.createElement("button");
+	baseClientDataCloseBtn.classList.add("added-clients__close-btn");
+	baseClientDataCloseBtn.textContent = "Zamknij";
+	baseClientDataBox.appendChild(baseClientDataCloseBtn);
 
 	addClientArea.close();
 	clearInputs();
@@ -123,14 +110,14 @@ const createNewClient = () => {
 };
 
 const showClientData = () => {
-	addedClientName.addEventListener("click", () => {
-		console.log(addedClientName.nextElementSibling);
+	baseClientName.addEventListener("click", () => {
+		console.log(baseClientName.nextElementSibling);
 		addedClientDataArea.show();
 	});
 };
 
 const closeClientData = () => {
-	clientDataCloseBtn.addEventListener("click", () => {
+	baseClientDataCloseBtn.addEventListener("click", () => {
 		addedClientDataArea.close();
 	});
 };

@@ -9,13 +9,16 @@ const main = () => {
 };
 
 const prepareDOMElements = () => {
-	// add client area
+	viewOfAddedClients = document.querySelector(".added-clients"); // base of clients area
+
+	// add new client area
 	addClientBtn = document.querySelector(".add-client-btn");
 	addClientArea = document.querySelector(".area-shadow");
 	addClientCancelBtn = document.querySelector(".btn-cancel-client");
 	addClientConfirmBtn = document.querySelector(".btn-confirm-add-client");
-	// add client area end
+	// add new client area end
 
+	// add new client info area (inputs)
 	newClientName = document.querySelector("#add-client-name");
 	newClientNip = document.querySelector("#add-client-nip");
 	newClientCity = document.querySelector("#add-client-city");
@@ -24,19 +27,19 @@ const prepareDOMElements = () => {
 	newClientPhone = document.querySelector("#add-client-phone");
 	newClientEmail = document.querySelector("#add-client-email");
 	newClientDescription = document.querySelector("#add-client-description");
-
-	viewOfAddedClients = document.querySelector(".added-clients");
+	// add new client info area end (inputs)
 };
 
 const prepareDOMEvents = () => {
-	addClientConfirmBtn.addEventListener("click", createNewClient);
-
 	addClientBtn.addEventListener("click", () => {
 		addClientArea.show();
 	});
+
 	addClientCancelBtn.addEventListener("click", () => {
 		addClientArea.close();
 	});
+
+	addClientConfirmBtn.addEventListener("click", createNewClient);
 };
 
 const createNewClient = () => {
@@ -105,13 +108,10 @@ const createNewClient = () => {
 
 	addClientArea.close();
 	clearInputs();
-	showClientData();
-	closeClientData();
 };
 
 const showClientData = () => {
 	baseClientName.addEventListener("click", () => {
-		console.log(baseClientName.nextElementSibling);
 		addedClientDataArea.show();
 	});
 };

@@ -115,10 +115,10 @@ const createNewClient = () => {
 	baseClientDataBox.appendChild(baseClientDataCloseBtn);
 
 	addClientArea.close();
-	clearInputs();
+	clearInputsInfo();
 };
 
-const clearInputs = () => {
+const clearInputsInfo = () => {
 	newClientName.value = "";
 	newClientNip.value = "";
 	newClientCity.value = "";

@@ -1,16 +1,11 @@
-let baseClientBox; // kafelek z nazwą klienta
-let baseClientDataBox; //szczegółowe dane klienta
-let baseClientName; // nazwa klienta w bazie
-let baseClientDataCloseBtn; //przycisk zamknięcia okienka z informacjami o kliencie z bazy
-
-const viewOfAddedClients = document.querySelector(".added-clients");
-
 const main = () => {
 	prepareDOMElements();
 	prepareDOMEvents();
 };
 
 const prepareDOMElements = () => {
+	viewOfAddedClients = document.querySelector(".added-clients");
+
 	// add new client area
 	addClientBtn = document.querySelector(".add-client-btn");
 	addClientArea = document.querySelector(".area-shadow");

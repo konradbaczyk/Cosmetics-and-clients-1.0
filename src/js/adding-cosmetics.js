@@ -10,13 +10,6 @@ const newProductError = document.querySelector(".error");
 const vatProduct8 = "8%";
 const vatProduct23 = "23%";
 
-let addedProductLine;
-let addedProductName;
-let addedProductNetPrice;
-let addedProductVatPercentage;
-let addedProductGrossPrice;
-let addedProductAmount;
-
 const addNewCosmetic = () => {
 	createNewLineProduct();
 	createNewProductName();

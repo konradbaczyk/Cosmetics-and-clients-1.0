@@ -19,21 +19,21 @@ infoBoxCloseBtn.addEventListener("click", () => {
 loginError.classList.remove("visibility-hidden");
 
 const checkLoginData = () => {
-	if ((loginInput.value == "kalendarz") & (passwordInput.value == "praca")) {
-		loginBtn.setAttribute("href", "/app-page.html");
-	} else if ((loginInput.value != "kalendarz") & (passwordInput.value != "praca")) {
+	if ((loginInput.value == "kosmetyki") & (passwordInput.value == "klienci")) {
+		loginBtn.setAttribute("href", "app-page.html");
+	} else if ((loginInput.value != "kosmetyki") & (passwordInput.value != "klienci")) {
 		loginError.classList.remove("display-none");
 		passwordError.classList.remove("display-none");
 		setTimeout(() => {
 			loginError.classList.add("display-none");
 			passwordError.classList.add("display-none");
 		}, 4000);
-	} else if (loginInput.value != "kalendarz") {
+	} else if (loginInput.value != "kosmetyki") {
 		loginError.classList.remove("display-none");
 		setTimeout(() => {
 			loginError.classList.add("display-none");
 		}, 4000);
-	} else if (passwordError.value != "praca") {
+	} else if (passwordError.value != "klienci") {
 		passwordError.classList.remove("display-none");
 		setTimeout(() => {
 			passwordError.classList.add("display-none");
